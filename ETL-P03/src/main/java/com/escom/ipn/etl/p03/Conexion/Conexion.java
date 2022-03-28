@@ -27,5 +27,4 @@ public class Conexion {
     public EntityManagerFactory getFactory() {
         return factory;
     }
-    
 }

@@ -222,7 +222,7 @@ public class DatosMetro implements Serializable {
 
     @Override
     public String toString() {
-        return "[ id=" + id+"," +" tipo_Ingreso="+tipoIngreso+ " ]";
+        return "[ id=" + id+"," +" tipo_Ingreso="+tipoIngreso+", Linea 12=" +linea12+" ]";
     }
     
 }

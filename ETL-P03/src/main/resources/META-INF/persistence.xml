@@ -3,6 +3,7 @@
   <persistence-unit name="com.escom.ipn_ETL-P03_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.escom.ipn.etl.p03.DAO.DatosMetro</class>
+    <class>com.escom.ipn.etl.p03.DAO.TablaTranformada</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://localhost:1433/Ingresos_Metro"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
