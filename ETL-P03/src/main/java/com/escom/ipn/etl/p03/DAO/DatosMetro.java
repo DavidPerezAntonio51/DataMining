@@ -18,6 +18,7 @@ import javax.persistence.Table;
  *
  * @author DEZKS
  */
+/*Entidad Generada por JPA para realizar un mapeo Entidad-Objeto*/
 @Entity
 @Table(name = "DatosMetro")
 @NamedQueries({

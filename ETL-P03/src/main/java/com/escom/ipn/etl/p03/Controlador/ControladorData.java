@@ -15,11 +15,14 @@ import javax.persistence.Query;
  *
  * @author DEZKS
  */
+/*El controlador Data se encarga exclusivamente de las operaciones sobre la tabla original de datos*/
 public class ControladorData {
+    /*Se encarga de la extracion de todos los datos y los retorna en una Lista*/
     public List<DatosMetro> getFullData(){
         Query query = entityManager().createQuery("SELECT d FROM DatosMetro d");
         return query.getResultList();
     }
+    /*Nos devuelve el Entity Manager que nos ayuda con las transacciones y peticiones a la base de datos*/
     private EntityManager entityManager(){
         return Conexion.getInstancia().getFactory().createEntityManager();
     }

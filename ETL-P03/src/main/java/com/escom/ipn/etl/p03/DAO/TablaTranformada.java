@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author DEZKS
  */
+/*Entidad Generada por JPA para realizar un mapeo Entidad-Objeto*/
 @Entity
 @Table(name = "tabla_tranformada")
 @XmlRootElement

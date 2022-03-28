@@ -16,8 +16,9 @@ import javax.persistence.EntityManager;
  *
  * @author DEZKS
  */
+/*Controlador que trabaja exclusivamente sobre la nueva tabla transformada*/
 public class ControladorGuardar {
-    
+    /*Se encarga de guardar en la base de datos el objeto transformado*/
     public void guardar (TablaTranformada dato){
         EntityManager en = this.entityManager();
         try{
@@ -30,7 +31,7 @@ public class ControladorGuardar {
             en.close();
         }
     }
-    
+    /*Nos regresa el EntityManager para realizar operaciones sobre la base de datos*/
     private EntityManager entityManager(){
         return Conexion.getInstancia().getFactory().createEntityManager();
     }

@@ -19,14 +19,21 @@ import java.util.List;
 public class main {
     
     public static void main(String[] args) {
+        /*Se crean 2 controladores para ayudarnos con las operaciones sobre la base de datos*/
         ControladorData controller = new ControladorData();
         ControladorGuardar controller2 = new ControladorGuardar();
+        /*Obtenemos una Lista con todos los registros de la base de datos*/
         List<DatosMetro> datos = controller.getFullData();
+        /*Recorremos cada fila de esa lista*/
         for (DatosMetro fila : datos) {
+            /*Por cada fila crearemos 12 nuevos registros*/
             for (int i = 1; i <= 12; i++) {
+                /*Se crea un nuevo objeto-entidad que contiene la nueva estructura*/
                 TablaTranformada temp = new TablaTranformada();
+                /*Se copian los datos de la tabla original a la nueva estructura en el orden deseado*/
                 temp.setFecha(fila.getFecha());
                 temp.setTipoIngreso(fila.getTipoIngreso());
+                /*Se realizan validaciones respecto a los posibles nulos y se clasifican con sus lineas correspondientes*/
                 switch (i) {
                     case 1:
                         if (fila.getLinea1() != null) {
@@ -139,6 +146,7 @@ public class main {
                         
                         break;
                 }
+                /*Se llama al controlador de la nueva tabla para realizar la persistencia del objeto transofrmado*/
                 controller2.guardar(temp);
             }
         }
