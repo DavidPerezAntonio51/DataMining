@@ -9,6 +9,7 @@ import com.escom.ipn.etl.p03.Conexion.Conexion;
 import com.escom.ipn.etl.p03.DAO.TablaTranformada;
 import java.util.Iterator;
 import java.util.List;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 
 /**
@@ -17,11 +18,16 @@ import javax.persistence.EntityManager;
  */
 public class ControladorGuardar {
     
-    public void guardar (List<TablaTranformada> datos){
+    public void guardar (TablaTranformada dato){
         EntityManager en = this.entityManager();
-        Iterator<TablaTranformada> data = datos.iterator();
-        while(data.hasNext()){
-            en.persist(data.next());
+        try{
+        en.getTransaction().begin();
+        en.persist(dato);
+        en.getTransaction().commit();
+        }catch(EntityExistsException e){
+            System.err.println(e);
+        }finally{
+            en.close();
         }
     }
     

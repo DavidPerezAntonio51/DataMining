@@ -6,6 +6,7 @@
 package com.escom.ipn.etl.p03;
 
 import com.escom.ipn.etl.p03.Controlador.ControladorData;
+import com.escom.ipn.etl.p03.Controlador.ControladorGuardar;
 import com.escom.ipn.etl.p03.DAO.DatosMetro;
 import com.escom.ipn.etl.p03.DAO.TablaTranformada;
 import java.util.ArrayList;
@@ -16,137 +17,130 @@ import java.util.List;
  * @author DEZKS
  */
 public class main {
-
+    
     public static void main(String[] args) {
         ControladorData controller = new ControladorData();
+        ControladorGuardar controller2 = new ControladorGuardar();
         List<DatosMetro> datos = controller.getFullData();
-        List<TablaTranformada> newData = new ArrayList<>();
-        DatosMetro data = new DatosMetro();
-        for(DatosMetro fila: datos){
-            for(int i=1;i<=12;i++){
+        for (DatosMetro fila : datos) {
+            for (int i = 1; i <= 12; i++) {
                 TablaTranformada temp = new TablaTranformada();
                 temp.setFecha(fila.getFecha());
                 temp.setTipoIngreso(fila.getTipoIngreso());
-                switch(i){
+                switch (i) {
                     case 1:
-                        if(fila.getLinea1()!=null){
+                        if (fila.getLinea1() != null) {
                             temp.setMonto(fila.getLinea1());
                             temp.setLineaMetro("LINEA_1");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_1");
                         }
-                    break;
+                        break;
                     case 2:
-                        if(fila.getLinea2()!=null){
+                        if (fila.getLinea2() != null) {
                             temp.setMonto(fila.getLinea2());
                             temp.setLineaMetro("LINEA_2");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_2");
                         }
-                    break;
+                        break;
                     case 3:
-                        if(fila.getLinea3()!=null){
+                        if (fila.getLinea3() != null) {
                             temp.setMonto(fila.getLinea3());
                             temp.setLineaMetro("LINEA_3");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_3");
                         }
-                    break;
+                        break;
                     case 4:
-                        if(fila.getLinea4()!=null){
+                        if (fila.getLinea4() != null) {
                             temp.setMonto(fila.getLinea4());
                             temp.setLineaMetro("LINEA_4");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_4");
                         }
-                    break;
+                        break;
                     case 5:
-                        if(fila.getLinea5()!=null){
+                        if (fila.getLinea5() != null) {
                             temp.setMonto(fila.getLinea5());
                             temp.setLineaMetro("LINEA_5");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_5");
                         }
-                    break;
+                        break;
                     case 6:
-                        if(fila.getLinea6()!=null){
+                        if (fila.getLinea6() != null) {
                             temp.setMonto(fila.getLinea6());
                             temp.setLineaMetro("LINEA_6");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_6");
                         }
-                    break;
+                        break;
                     case 7:
-                        if(fila.getLinea7()!=null){
+                        if (fila.getLinea7() != null) {
                             temp.setMonto(fila.getLinea7());
                             temp.setLineaMetro("LINEA_7");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_7");
                         }
-                    break;
+                        break;
                     case 8:
-                        if(fila.getLinea8()!=null){
+                        if (fila.getLinea8() != null) {
                             temp.setMonto(fila.getLinea8());
                             temp.setLineaMetro("LINEA_8");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_8");
                         }
-                    break;
+                        break;
                     case 9:
-                        if(fila.getLinea9()!=null){
+                        if (fila.getLinea9() != null) {
                             temp.setMonto(fila.getLinea9());
                             temp.setLineaMetro("LINEA_9");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_9");
                         }
-                    break;
+                        break;
                     case 10:
-                        if(fila.getLineaA()!=null){
+                        if (fila.getLineaA() != null) {
                             temp.setMonto(fila.getLineaA());
                             temp.setLineaMetro("LINEA_A");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_A");
                         }
-                    break;
+                        break;
                     case 11:
-                        if(fila.getLineaB()!=null){
+                        if (fila.getLineaB() != null) {
                             temp.setMonto(fila.getLineaB());
                             temp.setLineaMetro("LINEA_B");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_B");
                         }
-                    break;
+                        break;
                     case 12:
-                        if(fila.getLinea12()!=null){
+                        if (fila.getLinea12() != null) {
                             int monto = (int) Double.parseDouble(fila.getLinea12());
                             temp.setMonto(monto);
                             temp.setLineaMetro("LINEA_12");
-                        }else{
+                        } else {
                             temp.setMonto(0);
                             temp.setLineaMetro("LINEA_12");
                         }
                         
-                    break;
+                        break;
                 }
+                controller2.guardar(temp);
             }
-            /*
-            TablaTranformada L1 = new TablaTranformada();
-            L1.setFecha(fila.getFecha());
-            L1.setMonto(fila.getLinea1());
-            L1.setTipoIngreso(fila.getTipoIngreso());
-            L1.setLineaMetro();*/
-            
         }
     }
     
