@@ -5,8 +5,10 @@
  */
 package com.escom.ipn.etl.p04;
 
-import com.escom.ipn.etl.p04.ControladorLecturaCSV.ControladorCSV;
+import com.escom.ipn.etl.p04.ControladorLecturaCSV.ControladorCSVDatos;
+import com.escom.ipn.etl.p04.ControladorLecturaCSV.ControladorCSVEstaciones;
 import com.escom.ipn.etl.p04.Modelos.CSVModel;
+import com.escom.ipn.etl.p04.Modelos.CSVModeloCatalogo;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -17,13 +19,15 @@ import java.util.List;
  */
 public class main {
     public static void main(String[] args) {
-        ControladorCSV extractor = new ControladorCSV();
+        ControladorCSVDatos extractor = new ControladorCSVDatos();
+        ControladorCSVEstaciones extractorE = new ControladorCSVEstaciones();
+        List<CSVModeloCatalogo> estaciones = extractorE.getData("CatalogoEstaciones.csv");
         int Registros = 0;
         List<CSVModel> fulldata = new ArrayList<>();
         for(int i = 2000; i<=2019; i++){
             extractor.unificar(fulldata, extractor.getData(i+"PPH.csv"));
         }
-        for(CSVModel dato: fulldata){
+        for(CSVModeloCatalogo dato: estaciones){
             Registros++;
         }
         System.out.println(Registros);
