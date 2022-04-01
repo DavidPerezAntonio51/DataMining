@@ -5,13 +5,13 @@
  */
 package com.escom.ipn.etl.p04.Modelos;
 
-import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
 
 /**
  *
  * @author DEZKS
  */
+/*Modelo de mapeo para los archivo CSV*/
 public class CSVModel {
     @CsvBindByPosition(position = 0)
     private String fecha;

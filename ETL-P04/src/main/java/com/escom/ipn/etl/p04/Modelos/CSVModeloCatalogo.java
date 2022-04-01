@@ -11,6 +11,7 @@ import com.opencsv.bean.CsvBindByPosition;
  *
  * @author DEZKS
  */
+/*Modelo usado para el catalogo de estaciones*/
 public class CSVModeloCatalogo {
     @CsvBindByPosition(position = 0)
     private String Clave;
